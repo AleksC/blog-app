@@ -4,6 +4,9 @@
             <li class="nav-item active">
                 <router-link class="nav-link" to='/posts'>Posts</router-link>
             </li>
+            <li class="nav-item active">
+                <router-link class="nav-link" to='/add'>Add Post</router-link>
+            </li>
         </ul>
     </nav>
 </template>
