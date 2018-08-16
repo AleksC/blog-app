@@ -1,6 +1,6 @@
 <template>
     <div>
-        <AppPosts :posts="posts"></AppPosts>
+        <AppPosts @postDeleted=postDeleted :posts="posts"></AppPosts>
     </div>
 </template>
 <script>
@@ -15,6 +15,11 @@ export default {
     return {
       posts: []
     };
+  },
+  methods: {
+    postDeleted(id) {
+      this.posts = this.posts.filter(post => post.id !== id);
+    }
   },
   beforeRouteEnter(to, from, next) {
     posts

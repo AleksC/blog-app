@@ -9,7 +9,7 @@
                 <label for="text">Text:</label><br>
                 <textarea v-model="post.text" cols=100 rows="10" required maxlength=300></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Add New Post</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
         <br>
         <button class="btn btn-danger" @click=reset>Reset Fields</button>
@@ -18,17 +18,19 @@
 <script>
 export default {
   data() {
-    return {
-      post: { title: "", text: "" }
-    };
+    return {};
   },
+  props: ["post"],
   methods: {
     submit() {
-      this.$emit("addPost", this.post);
+      this.$route.params.id
+        ? this.$emit("editPost", this.post)
+        : this.$emit("addPost", this.post);
     },
     reset() {
       this.post = { title: "", text: "" };
     }
-  }
+  },
+  created() {}
 };
 </script>

@@ -9,11 +9,23 @@
                 View Post
             </router-link>
         </button>
+        <button class="btn btn-warning">
+            <router-link :to="{ name: 'edit', params: { id: post.id}}">
+                Edit Post
+            </router-link>
+        </button>
+        <button class="btn btn-danger" @click="deletePost(post.id)">Delete Post
+        </button>
     </div>
 </div>
 </template>
 <script>
 export default {
-  props: ["posts"]
+  props: ["posts"],
+  methods: {
+    deletePost(id) {
+      this.$emit("postDeleted", id);
+    }
+  }
 };
 </script>
