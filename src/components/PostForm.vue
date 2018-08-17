@@ -7,7 +7,7 @@
             </div>
             <div class="form-group">
                 <label for="text">Text:</label><br>
-                <textarea v-model="post.text" cols=100 rows="10" required maxlength=300></textarea>
+                <textarea id="mytextarea" v-model="post.text" cols=100 rows="10" required maxlength=300></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

@@ -2,7 +2,7 @@
 <div>
     <div v-for="(post, key) in posts" :key="key">
         <h1> {{ post.title }} </h1>
-        <h5> {{ post.id }} </h5>
+        <h5> Posted at: {{ post.createdAt | formatDate() }} </h5>
         <p> {{ post.text }}</p>
         <button class="btn btn-success">
             <router-link :to="{ name: 'single-post', params: { id: post.id}}">
@@ -20,12 +20,15 @@
 </div>
 </template>
 <script>
+import { dateMixin } from "./../mixins/DateMixin";
+
 export default {
   props: ["posts"],
   methods: {
     deletePost(id) {
       this.$emit("postDeleted", id);
     }
-  }
+  },
+  mixins: [dateMixin]
 };
 </script>
